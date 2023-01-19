@@ -169,10 +169,10 @@
                     <a href="images/machine learnong.pdf" class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
-                    <form  name="submit-to-google-sheet"  >
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <form id="form" name="submit-to-google-sheet"  >
+                        <input type="text" id="name" name="Name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" id="message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2" value="send">submit</button>
 
                     </form>
@@ -215,23 +215,54 @@
     </script>
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyey987ohE0s5oVXOc1SBcadUdXSxCBZS09lqx9hRzK_5lz3O_zkaQFBOHYYaEaKQ5MfA/exec'
-        const form = document.forms['submit-to-google-sheet']
+        const form1 = document.forms['submit-to-google-sheet']
         const msg = document.getElementById("msg")
         form.addEventListener('submit', e => {
             e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            fetch(scriptURL, { method: 'POST', body: new FormData(form1) })
                 .then(response => {
                     msg.innerHTML = "Message sent successfully"
                     setTimeout(function () {
                         msg.innerHTML = ""
                     }, 5000)
-                    form.reset()
+                    form1.reset()
                 })
                 .catch(error => console.error('Error!', error.message))
         })
         
 
     </script>
+   
+<script>
+// form data
+const form = document.getElementById("form");
+
+form.addEventListener("submit", e => {
+e.preventDefault();
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
+
+// creating the email message
+const data = `name=${name}&email=${email}&message=${message}`;
+
+// sending the email
+const xhr = new XMLHttpRequest();
+xhr.open("POST", "https://formspree.io/f/mvongwaa");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.send(data);
+xhr.onload = () => {
+    if (xhr.status === 200) {
+        console.log("Email sent!");
+    } else {
+        console.log("An error occured, please try again later.");
+    }
+};
+});
+
+
+</script>
 </body>
 
 </html>
