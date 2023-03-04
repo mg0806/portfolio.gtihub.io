@@ -26,8 +26,8 @@
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p> web designer</p>
-                <h1>Hi, I'm <span>Manohar </span> <br> from india</h1>
+                <!-- <p> web designer,</p> -->
+                <h1>Hi, I'm <span>Manohar </span> <br> from <span>i</span>ndi<span>a</span></h1>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/user.png" alt="">
+                    <img src="images/portfolio_about-removebg-preview.png" alt="">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
@@ -130,7 +130,8 @@
                         <p>The app connects you to the world , and they communicate.
                             download it from playstore/ios.
                         </p>
-                        <a href=" https://mg0806.github.io/Musicplayer.github.io/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href=" https://mg0806.github.io/Musicplayer.github.io/"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
@@ -169,7 +170,7 @@
                     <a href="images/machine learnong.pdf" class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
-                    <form id="form" name="submit-to-google-sheet"  >
+                    <form id="form" name="submit-to-google-sheet">
                         <input type="text" id="name" name="Name" placeholder="Your Name" required>
                         <input type="email" id="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" id="message" rows="6" placeholder="Your Message"></textarea>
@@ -184,8 +185,7 @@
             <p>copyright @ Manohar Gupta.<i class="fa-solid fa-heart-pulse"></i> </p>
 
         </div>
-        <a href="#" class="btn back-to-top"><i
-            class="fa fa-chevron-up"></i></a>
+        <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
     </div>
 
     <script>
@@ -229,40 +229,40 @@
                 })
                 .catch(error => console.error('Error!', error.message))
         })
-        
+
 
     </script>
-   
-<script>
-// form data
-const form = document.getElementById("form");
 
-form.addEventListener("submit", e => {
-e.preventDefault();
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const message = document.getElementById("message").value;
+    <script>
+        // form data
+        const form = document.getElementById("form");
 
-// creating the email message
-const data = `name=${name}&email=${email}&message=${message}`;
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-// sending the email
-const xhr = new XMLHttpRequest();
-xhr.open("POST", "https://formspree.io/f/mvongwaa");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhr.send(data);
-xhr.onload = () => {
-    if (xhr.status === 200) {
-        console.log("Email sent!");
-    } else {
-        console.log("An error occured, please try again later.");
-    }
-};
-});
+            // creating the email message
+            const data = `name=${name}&email=${email}&message=${message}`;
+
+            // sending the email
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://formspree.io/f/mvongwaa");
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log("Email sent!");
+                } else {
+                    console.log("An error occured, please try again later.");
+                }
+            };
+        });
 
 
-</script>
+    </script>
 </body>
 
 </html>
