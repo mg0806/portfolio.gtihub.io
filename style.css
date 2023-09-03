@@ -375,15 +375,19 @@ form .btn2 {
     color: #ff004f;
 }
 
-/* ------------------------csss for small screens */
+/* ------------------------css for small screens */
 nav .fa-solid {
     display: none;
 }
 
 @media only screen and (max-width:600px) {
     #header {
-        background-image: url(images/phone-background.png);
+        background-image: url(images/background123.png);
     }
+
+
+
+
 
     .header-text {
         margin-top: 288px;
